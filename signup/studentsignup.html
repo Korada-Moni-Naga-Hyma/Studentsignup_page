@@ -1,0 +1,169 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="studentsignup.css">
+    </head>
+    <script>
+        function toggleDiv() {
+            var parentRadio = document.getElementById("parentRadio");
+            var checkDiv = document.getElementById("check");
+            var check1Div = document.getElementById("check1");
+
+            if (parentRadio.checked) {
+                checkDiv.style.display = "block";
+                check1Div.style.display = "none";   
+            } 
+            else{
+                checkDiv.style.display = "none";
+                check1Div.style.display = "block";
+            }
+        }
+    </script>
+    <body>
+        <form action="/savedetails" method='POST'>
+            <h2><i>Personal Details</i></h2>
+            <div class="profile">
+                <input type="file" accept="image/*" id="Photo" style="display: none;" name="Photo">
+                <label for="Photo">
+                    <img id="profile-picture" src="USERICON1.jpg" alt="Profile Picture">
+                </label>
+            </div>
+            <h3 style="text-align:center;">Upload your profile</h3>
+            
+            <script>
+                const profilePictureInput = document.getElementById('Photo');
+                const profilePicture = document.getElementById('profile-picture');
+                
+                profilePictureInput.addEventListener('change', (event) => {
+                    const file = event.target.files[0];
+                
+                    if (file) {
+                        const reader = new FileReader();
+                
+                        reader.onload = (e) => {
+                            profilePicture.src = e.target.result;
+                        };
+                
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
+                Username:
+                <input type="text" name="username" id="username" placeholder="Enter your username" required/><br>
+                password:
+                <input type="password"name='password' id="password" placeholder="Enter your password"required ><br>
+                <br>
+                RollNo:
+                <input type="text" name="rollno" id="rollno" placeholder="Enter your rollno"required><br>
+                Branch:
+                <input type="text" name="branch" id="branch" placeholder="Enter your branch" required><br>
+                Gender:<br>
+                <input type="radio" name="gender" id="gender">Female<br>
+                <input type="radio" name="gender" id="gender">Male<br>
+                <input type="radio" name="gender" id="gender">Other<br>
+                Seat Type:
+                <input type="text" name="seattype" id="seattype" placeholder="Enter your seat type"><br>
+                Last studied:<br>
+                <input type="radio" name="laststudied" id="laststudied">Intermediate<br>
+                <input type="radio" name="laststudied" id="laststudied">Polytechnic<br>
+                Student Phone No:
+                <input type="tel" name="studentphone" id="studentphone" placeholder="Enter your phone no" ><br>
+                Email:
+                <input type="email" name="email" id="email" placeholder="Enter your email" ><br>
+                Semester:
+                <input type="number" name="semester" id="semester" placeholder="Enter your semester" ><br>
+                Date of Birth:
+                <input type="date" name="dob" id="dob" placeholder="Enter your dob" ><br>
+                Religion:
+                <input type="text" name="religion" id="religion" placeholder="Enter your religion"><br>
+                EAMCET/ECET rank:
+                <input type="number" name="rank" id="rank" placeholder="Enter your rank"><br>
+                Category & Caste:<br>
+                <input type="radio" name="caste" id="caste">General<br>
+                <input type="radio" name="caste" id="caste">SC/ST<br>
+                <input type="radio" name="caste" id="caste">OBC<br>
+                Joining Date:
+                <input type="date" name="joiningdate" id="joiningdate" placeholder="Enter your Joining date"><br>
+                Aadhar No:
+                <input type="number" maxlength="12" name="Aadhar" id="Aadhar" placeholder="Enter your Aadhar"><br>
+                Address:
+                <input type="text" name="address" id="address"><br>
+
+
+                <h2>Education Details</h2>
+
+                <h4>10th</h4>
+                School name:
+                <input type="text" name="school" id="school" placeholder="Enter your school name"><br>
+                Board Type:<br>
+                <input type="text" name="board" id="board" placeholder="Enter your Board Type"><br>
+                Hall Ticket Number:
+                <input type="number" name="tenhall" id="tenhall" placeholder="Enter your tenth Hall Ticket"><br>
+                Year of pass:
+                <input type="number" name="tenyear" id="tenyear" placeholder="Enter your tenth passing year"><br>
+                Marks/Percentage:
+                <input type="number" name="tenmarks" id="tenmarks" placeholder="Enter your tenth marks" ><br>
+                Address of the school:
+                <input type="text" name="tenaddress" id="tenaddress"><br>
+
+                <h4>Intermediate/Polytechnic</h4>
+                College name:
+                <input type="text" name="intercollege" id="intercollege" placeholder="Enter your college name"><br>
+                Group:
+                <input type="text" name="group" id="groud"><br>
+                Hall Ticket Number:
+                <input type="number" name="interhall" id="interhall" placeholder="Enter your inter Hall Ticket"><br>
+                Year of pass:
+                <input type="number" name="interyear" id="interyear" placeholder="Enter your inter passing year"><br>
+                Marks/Percentage:
+                <input type="number" name="intermarks" id="intermarks" placeholder="Enter your inter marks" ><br>
+                Address of Intermediate college:
+                <input type="text" name="interaddress" id="interaddress"><br>
+
+                <h4>Parent/Guardian details</h4>
+                Parent/Guardian:<br>
+                <input type="radio" name="relationship" id="parentRadio" onclick="toggleDiv();"> Parent<br>
+                <input type="radio" name="relationship" id="guardianRadio" onclick="toggleDiv();"> Guardian
+                <div id="check" style="display:none;">
+                Father name:
+                <input type="text" name="father" id="father"><br>
+                Father mobile no:
+                <input type="tel" name="fathermobile" id="fathermobile"><br>
+                Father Occupation:
+                <input type="text" name="fatheroccupation" id="fatheroccupation"><br>
+                Father Education Qualifications:
+                <input type="text" name="fathereducation" id="fathereducation"><br>
+                Mother name:
+                <input type="text" name="mother" id="mother"><br>
+                Mother mobile no:
+                <input type="tel" name="mothermobile" id="mothermobile"><br>
+                Mother Occupation:
+                <input type="text" name="Motheroccupation" id="Motheroccupation"><br>
+                Mother Education Qualifications:
+                <input type="text" name="mothereducation" id="mothereducation"><br>
+                Annual Income:
+                <input type="number" name="income" id="income"><br>
+                Address:
+                <input type="text" name="paraddress" id="paraddress"><br>
+                </div>
+
+                <div id="check1" style="display: none;">
+                Guardian name:
+                <input type="text" name="guname" id="guname"><br>
+                Guardian mobile no:
+                <input type="tel" name="gumobile" id="gumobile"><br>
+                Guardian Occupation:
+                <input type="text" name="guocc" id="guocc"><br>
+                Guardian Education Qualifications:
+                <input type="text" name="guedu" id="guedu"><br>
+                Address:
+                <input type="text" name="guaddress" id="guaddress"><br>
+                </div>
+                <br>
+                <br>
+
+                </div>
+                <input type="submit" value="Login" id="login-box">
+                <input type="reset" value="Reset" id="reset">
+        </form>
+    </body>
+    </html>
